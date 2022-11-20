@@ -33,7 +33,6 @@ export default defineComponent({
 
 <template>
   <div>
-    {{ borderBox.checkboxList?.checkboxes }}
     <border-box v-bind="borderBox" />
   </div>
 </template>
