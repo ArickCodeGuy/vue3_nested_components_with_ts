@@ -1,17 +1,16 @@
 <template>
-  <div class="CheckboxList">
+  <div class="CheckboxList" v-if="checkboxes">
     <checkbox-label
-      v-for="(checkbox, i) in localCheckboxes"
-      v-bind="checkbox"
+      v-for="(checkboxLabel, i) in checkboxes"
+      v-bind="checkboxLabel"
       class="CheckboxList__item"
       :key="i"
-      @update:checkbox="localCheckboxes[i].checkbox.modelValue = $event"
     />
   </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { CheckboxList } from '../types';
 
 export default defineComponent({
@@ -20,18 +19,6 @@ export default defineComponent({
       type: Array as PropType<CheckboxList['checkboxes']>,
       default: () => [],
     },
-  },
-  setup(props, { emit }) {
-    const localCheckboxes = computed({
-      get: () => props.checkboxes ?? [],
-      set(v) {
-        emit('update:checkboxes', v);
-      },
-    });
-
-    return {
-      localCheckboxes,
-    };
   },
 });
 </script>

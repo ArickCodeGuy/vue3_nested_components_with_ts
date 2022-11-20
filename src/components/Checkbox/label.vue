@@ -1,15 +1,15 @@
 <template>
   <div
     class="CheckboxLabel"
-    @click="$emit('update:checkbox', !checkbox.modelValue)"
+    @click="localCheckbox.modelValue = !localCheckbox.modelValue"
   >
-    <checkbox v-bind="checkbox" @click.prevent />
+    <checkbox v-bind="checkbox" />
     {{ label }}
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { computed, defineComponent, PropType } from 'vue';
 import { CheckboxLabel } from '../types';
 
 export default defineComponent({
@@ -22,7 +22,18 @@ export default defineComponent({
       type: String,
     },
   },
-  setup() {},
+  setup(props, { emit }) {
+    const localCheckbox = computed({
+      get: () => props.checkbox,
+      set(v) {
+        emit('update:checkbox', v);
+      },
+    });
+
+    return {
+      localCheckbox,
+    };
+  },
 });
 </script>
 

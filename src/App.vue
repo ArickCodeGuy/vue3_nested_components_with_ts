@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { BorderBox, Checkbox, CheckboxList } from './components/Checkbox/types';
+import { BorderBox, Checkbox, CheckboxList } from './components/types';
 
 const useCheckbox = (): Checkbox => ({
   modelValue: false,
@@ -33,6 +33,7 @@ export default defineComponent({
 
 <template>
   <div>
+    {{ borderBox }}
     <border-box v-bind="borderBox" />
   </div>
 </template>
