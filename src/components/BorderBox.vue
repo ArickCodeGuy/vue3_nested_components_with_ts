@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { BorderBox } from './Checkbox/types';
+import { BorderBox } from './types';
 
 export default defineComponent({
   props: {

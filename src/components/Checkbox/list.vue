@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from 'vue';
-import { CheckboxList } from './types';
+import { CheckboxList } from '../types';
 
 export default defineComponent({
   props: {

@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { CheckboxLabel } from './types';
+import { CheckboxLabel } from '../types';
 
 export default defineComponent({
   props: {
