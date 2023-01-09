@@ -26,16 +26,35 @@ export default defineComponent({
       checkboxList: bbcheckboxes,
     });
 
-    return { borderBox };
+    const isModalShown = ref(false);
+
+    return { borderBox, isModalShown };
   },
 });
 </script>
 
 <template>
-  <div>
-    {{ borderBox }}
-    <border-box v-bind="borderBox" />
-  </div>
+  <Main>
+    <!-- <div>
+      {{ borderBox }}
+      <border-box v-bind="borderBox" />
+    </div> -->
+    <div>
+      <button @click="isModalShown = true">open modal</button>
+      <Modal v-model="isModalShown">
+        <div class="m-body">
+          <Accordion>
+            <button>toggleAccordion</button>
+            <template #target>target</template>
+          </Accordion>
+        </div>
+      </Modal>
+    </div>
+  </Main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.m-body {
+  height: 1000px;
+}
+</style>
