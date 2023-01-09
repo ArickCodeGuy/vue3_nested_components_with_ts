@@ -8,7 +8,7 @@ const useCheckbox = (): Checkbox => ({
 
 export default defineComponent({
   setup() {
-    const bbcheckboxes: CheckboxList = {
+    const borderBoxCheckboxesProps: CheckboxList = {
       checkboxes: [
         {
           checkbox: useCheckbox(),
@@ -23,7 +23,7 @@ export default defineComponent({
 
     const borderBox = ref<BorderBox>({
       heading: 'Some Heading',
-      checkboxList: bbcheckboxes,
+      checkboxList: borderBoxCheckboxesProps,
     });
 
     const isModalShown = ref(false);
